@@ -12,7 +12,7 @@
 	<div class="p-5 border-b-2 border-gray-2">
 		<pre class="whitespace-pre-wrap">{data.snippet?.content}</pre>
 	</div>
-	<div class="bg-gray-1 p-5  text-gray-4 flex justify-between">
+	<div class="bg-gray-1 p-5  text-gray-4 flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between">
 		<span>Created On: {data.snippet?.createdAt}</span>
 		<span>Expires On: {data.snippet?.expiresAt}</span>
 	</div>
