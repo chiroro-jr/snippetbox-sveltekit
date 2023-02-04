@@ -11,7 +11,8 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"prisma:push": "pnpm dlx prisma db push",
-		"prisma:generate": "pnpm dlx prisma generate"
+		"prisma:generate": "pnpm dlx prisma generate",
+		"prisma:studio": "pnpm dlx prisma studio"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
