@@ -133,6 +133,8 @@
 		</ul>
 	</div>
 	<div class="border-t-2 border-dotted border-gray-3 pt-5">
-		<Button disabled={loading} type="submit">Publish Snippet</Button>
+		<Button disabled={loading} type="submit"
+			>{loading ? 'Publishing Snippet...' : 'Publish Snippet'}</Button
+		>
 	</div>
 </form>
