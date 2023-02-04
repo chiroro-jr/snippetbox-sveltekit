@@ -10,7 +10,7 @@
 	<title>SnippetBox - Sign In</title>
 </svelte:head>
 
-<Heading>Sign Up</Heading>
+<Heading>Sign In</Heading>
 <form
 	method="POST"
 	action="/signin"
