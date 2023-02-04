@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
 	import { page } from '$app/stores'
+	import Button from '$lib/components/Button.svelte'
 	import Heading from '$lib/components/Heading.svelte'
 
 	$: ({ form } = $page)
@@ -120,8 +121,6 @@
 		</ul>
 	</div>
 	<div class="border-t-2 border-dotted border-gray-3 pt-5">
-		<button type="submit" class="inline-block rounded-md bg-green p-5 font-bold text-white"
-			>Publish Snippet</button
-		>
+		<Button type="submit">Publish Snippet</Button>
 	</div>
 </form>
