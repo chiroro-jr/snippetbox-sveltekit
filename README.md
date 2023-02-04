@@ -20,7 +20,7 @@ This is my implementation of [Snippetbox](https://github.com/DataDavD/letsgo_sni
 **Clone the repository**
 
 ```bash
-
+git clone https://github.com/chiroro-jr/snippetbox-sveltekit.git
 ```
 
 **Install dependencies**
