@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
@@ -31,5 +32,6 @@ model Snippet {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
 
+  @@index([userId])
   @@index([createdAt])
 }
