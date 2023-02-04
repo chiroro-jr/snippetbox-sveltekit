@@ -1,11 +1,23 @@
 <script lang="ts">
-	import { enhance } from '$app/forms'
+	import { applyAction, enhance } from '$app/forms'
 	import { page } from '$app/stores'
 	import Button from '$lib/components/Button.svelte'
 	import Heading from '$lib/components/Heading.svelte'
+	import type { SubmitFunction } from '$app/forms'
 
+	let loading = false
 	$: ({ form } = $page)
 	$: ({ data } = $page)
+
+	const submit: SubmitFunction = ({}) => {
+		loading = true
+
+		return async ({ update, result }) => {
+			loading = false
+			await update()
+			await applyAction(result)
+		}
+	}
 </script>
 
 <svelte:head>
@@ -17,7 +29,7 @@
 	method="POST"
 	action="?/createSnippet"
 	class="grid gap-5 border-t-2 border-dotted border-gray-3 pt-5"
-	use:enhance
+	use:enhance={submit}
 >
 	{#if form?.errors?.formErrors}
 		<div class="mb-3 space-y-2">
@@ -121,6 +133,6 @@
 		</ul>
 	</div>
 	<div class="border-t-2 border-dotted border-gray-3 pt-5">
-		<Button type="submit">Publish Snippet</Button>
+		<Button disabled={loading} type="submit">Publish Snippet</Button>
 	</div>
 </form>
