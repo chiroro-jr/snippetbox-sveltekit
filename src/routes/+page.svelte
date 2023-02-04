@@ -14,9 +14,9 @@
 <Heading>Latest Snippets</Heading>
 {#if data.snippets.length === 0}
 	<p class="text-blue">
-		There nothing to see here yet!
+		There's nothing to see here yet!
 		{#if data.user}
-			<a href="/snippets/create" class="text-green">Create some snippets.</a>
+			<a href="/snippets/create" class="text-green">Create a snippet.</a>
 		{/if}
 	</p>
 {:else}
