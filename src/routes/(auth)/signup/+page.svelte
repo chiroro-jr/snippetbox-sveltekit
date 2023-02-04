@@ -1,10 +1,21 @@
 <script lang="ts">
-	import { enhance } from '$app/forms'
+	import { applyAction, enhance, type SubmitFunction } from '$app/forms'
 	import { page } from '$app/stores'
 	import Button from '$lib/components/Button.svelte'
 	import Heading from '$lib/components/Heading.svelte'
 
+	let loading = false
 	$: ({ form } = $page)
+	const submit: SubmitFunction = () => {
+		loading = true
+		return async ({ update, result }) => {
+			await new Promise((resolve) => setTimeout(resolve, 3000))
+			loading = false
+
+			await update()
+			await applyAction(result)
+		}
+	}
 </script>
 
 <svelte:head>
@@ -16,7 +27,7 @@
 	method="POST"
 	action="/signup"
 	class="grid gap-5 border-t-2 border-dotted border-gray-3 pt-5"
-	use:enhance
+	use:enhance={submit}
 >
 	{#if form?.errors?.formErrors}
 		<div class="mb-3 space-y-2">
@@ -82,6 +93,8 @@
 		</ul>
 	</div>
 	<div class="border-t-2 border-dotted border-gray-3 pt-5">
-		<Button type="submit">Create Account</Button>
+		<Button disabled={loading} type="submit"
+			>{loading ? 'Creating Account...' : 'Create Account'}</Button
+		>
 	</div>
 </form>
