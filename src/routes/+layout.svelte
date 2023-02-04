@@ -10,7 +10,7 @@
 
 <div class="app-grid | min-w-screen min-h-screen">
 	<!-- Top Gradient -->
-	<div class="gradient | fixed top-0 left-0 right-0 h-2" />
+	<div class="gradient | h-2" />
 	<Logo />
 	<NavBar isLoggedIn={!!$page.data.user} {pathname} />
 	<main>
