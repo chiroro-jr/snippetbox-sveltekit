@@ -7,8 +7,13 @@ export const handle: Handle = async ({ event, resolve }) => {
 	return await resolve(event)
 }
 
-export const handleError: HandleServerError = async ({ error }) => {
-	console.dir(error)
+export const handleError: HandleServerError = async ({ event }) => {
+	// 404 - Page not found
+	if (event.route.id === null) {
+		return {
+			message: 'Sorry, that page does not exist.'
+		}
+	}
 	return {
 		message: 'Something went wrong. Try again later.'
 	}
